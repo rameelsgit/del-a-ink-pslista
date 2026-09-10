@@ -18,15 +18,16 @@ while (!klar)
 
     varor.Add(vara);
     pris.Add(priset);
-    // foreach som skriver ut användarens input av saker i varor och kostnad i psris
-    int counter = 1;
-    foreach (string saker in varor)
-    {
-        foreach(int kostnad in pris)
-        {
-                Console.WriteLine($"{counter}. {saker} - {kostnad} kr");
 
+// for loop för att skriva ut varor i listan och priserna i prislistan.
+    for (int i = 0; i < varor.Count; i++)
+    {
+        Console.WriteLine($"{i+1}. {varor[i]} - {pris[i]} kr");
+        string stop;
+        if (stop == s)
+        {
+            break;
         }
-        counter++;
     }
+
 }
