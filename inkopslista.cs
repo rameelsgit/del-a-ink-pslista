@@ -6,28 +6,36 @@ List<int> pris = [];
 Console.WriteLine("Väkommen Till inköpslistan");
 // bool är lagt till false så att den körs tills den blir klar 
 bool klar = false;
-
+// deklarerat totalpris
+int totalPris = 0;
 // while loopen som körs till det blir true 
 while (!klar)
 {
     Console.WriteLine(" Skriv in din vara: ");
     string vara = Console.ReadLine()!;
 
-    Console.WriteLine("Skriv in priset: ");
+    Console.WriteLine(" Skriv in priset: ");
     int priset = int.Parse(Console.ReadLine()!);
 
     varor.Add(vara);
     pris.Add(priset);
 
+// priset adderas till totalpriset
+    totalPris +=priset;
+
 // for loop för att skriva ut varor i listan och priserna i prislistan.
     for (int i = 0; i < varor.Count; i++)
     {
         Console.WriteLine($"{i+1}. {varor[i]} - {pris[i]} kr");
-        string stop;
-        if (stop == s)
-        {
-            break;
-        }
+
+    }
+    Console.WriteLine($"Totalt: {totalPris}");
+// för att avsluta while loopen sätts klar till true om användaren trycker S 
+    Console.WriteLine("För att avsluta tryck s. Annars skriv nästa vara: ");
+    string avsluta = Console.ReadLine()!.ToLower();
+    if (avsluta == "s")
+    {
+        klar = true;
     }
 
 }
