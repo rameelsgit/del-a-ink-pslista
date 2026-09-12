@@ -30,12 +30,38 @@ while (!klar)
 
     }
     Console.WriteLine($"Totalt: {totalPris}");
+
+    Console.Write("Ta bort något vara? JA/NEJ: ");
+    string? taBortVara = Console.ReadLine()!.ToUpper();
+    if (taBortVara =="JA")
+    {
+        Console.WriteLine("Ange nummer: ");
+        string? num = Console.ReadLine();
+
+        // duplicerat if satsen som visar varorlistan samt totala priset efter att man vill fortsätta 
+        if (int.TryParse(num, out int inputAsNumber))
+        {
+
+            varor.RemoveAt(inputAsNumber - 1);
+             for (int i = 0; i < varor.Count; i++)
+    {
+        Console.WriteLine($"{i+1}. {varor[i]} - {pris[i]} kr");
+
+    }
+    Console.WriteLine($"Totalt: {totalPris}");
+
+        }
+
+    }
 // för att avsluta while loopen sätts klar till true om användaren trycker S 
-    Console.WriteLine("För att avsluta tryck s. Annars skriv nästa vara: ");
+    Console.WriteLine("För att avsluta tryck S. Annars Y: ");
     string avsluta = Console.ReadLine()!.ToLower();
     if (avsluta == "s")
     {
         klar = true;
     }
+// console.clear() gör att displayen blir ren och att man kan fortsätta skriva in varor i ren console.
+    Console.Clear();
+
 
 }
