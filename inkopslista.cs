@@ -49,6 +49,9 @@ while (!klar)
         {
 
             varor.RemoveAt(inputAsNumber - 1);
+            // tillagt att totalpriset ska förändras efter att en vara tagits bort
+            totalPris -= pris[inputAsNumber - 1];
+            pris.RemoveAt(inputAsNumber - 1);
              for (int i = 0; i < varor.Count; i++)
     {
         Console.WriteLine($"{i+1}. {varor[i]} - {pris[i]} kr");
