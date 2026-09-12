@@ -15,7 +15,13 @@ while (!klar)
     string vara = Console.ReadLine()!;
 
     Console.WriteLine(" Skriv in priset: ");
-    int priset = int.Parse(Console.ReadLine()!);
+    // om priset inte är ett heltal så skickas meddelandet för att ange en siffra och den börjar om
+    if (!int.TryParse(Console.ReadLine(), out int priset))
+    {
+    Console.WriteLine("Ange en siffra >:( ");
+    continue;   
+
+    }
 
     varor.Add(vara);
     pris.Add(priset);
